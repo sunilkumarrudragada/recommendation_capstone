@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sentiment-Based Product Recommendation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 40px;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+      }
+      h1 {
+        text-align: center;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      button {
+        margin-top: 15px;
+        padding: 10px;
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      ul {
+        margin-top: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .error {
+        color: red;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Product Recommendation System</h1>
+
+      <form method="POST">
+        <label for="username">Enter Username:</label>
+        <input
+          type="text"
+          name="username"
+          placeholder="e.g. some_user123"
+          required
+        />
+        <button type="submit">Get Recommendations</button>
+      </form>
+
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %} {% if recommendations %}
+      <h3>Top 5 Recommended Products</h3>
+      <ul>
+        {% for product in recommendations %}
+        <li>{{ product }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </body>
+</html>
