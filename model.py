@@ -10,9 +10,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(BASE_DIR, 'sentiment_model.pkl'), 'rb') as f:
     sentiment_model = pickle.load(f)
 
-print("TF-IDF path:",
-      os.path.abspath(os.path.join(BASE_DIR, 'tfidf.pkl')))
-
 
 with open(os.path.join(BASE_DIR, 'tfidf_vectorizer.pkl'), 'rb') as f:
     tfidf_vectorizer = pickle.load(f)
